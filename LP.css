@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #544349;
+    display: flex;
+}
+
+/* navbar css */
+.nav {
+  list-style-type: none;
+  display: flex;
+  align-items: center;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.nav{
+  gap: 20px;
+  padding: 10px 60px; 
+  margin-bottom: 20px;
+  font-size: 18px;
+  border: #aaa5a7;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+}
+
+.nav li a {
+  display: block;
+  gap: 14px;
+  text-decoration: none;
+  color: #f3e7d9;
+  padding: 14px 16px;
+}
+
+.active {
+  background-color: #f3e7d95a;
+  border-radius: 30px;
+}
+
+.right {
+  margin-left: auto;
+  display: flex;
+  gap: 14px;
+}
+
+.signup {
+    float: right;
+    margin-right: 10px;
+}
+
+.login {
+    float: right;
+}
+
+.nav li a:hover {
+  background-color: #f3e7d939;
+  border-radius: 60px;
+}
+
+
+/* HOME CSS */
+.box1{
+    display: flex;
+    align-items: center;
+    padding: 50px ; 
+    color: #f3e7d9;
+}
+
+.box1-left{
+    width: 50%;
+}
+
+.box1-left h1 {
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
+
+.box1-left p {
+    margin-top: 20px;
+    width: 90%;
+    font-size: 18px;
+}
+
+
+/* BUTTON CSS */
+.start {
+    margin-top: 30px;
+    padding: 14px 28px;
+    border-radius: 30px;
+    border: 0px;
+    background: #f3e7d9;
+    color: #544349;
+    font-size: 16px;
+            box-shadow:  0 10px 4px rgba(0, 0, 0, 0.4);
+
+}
+
+.start:hover {
+    background: #f3e7d95a;
+    cursor: pointer;
+
+}
+
+/* IMAGE CSS */
+.tms{
+    margin-top: 30px;
+    width: 50%;
+    max-width: 450px;
+    border-radius: 90px;
+    box-shadow:  20px 40px rgba(0, 0, 0, 0.4);
+}
