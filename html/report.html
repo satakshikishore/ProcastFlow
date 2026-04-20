@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCF - Report</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+  </style>
+</head>
+<body data-auth-required="true">
+  <header class="app-topbar"><div class="container"><a class="brand" href="home.html">PCF</a></div></header>
+  <main class="container dashboard-layout">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="taskbreaker.html">Task Breaker</a>
+        <a href="todo.html">TODO</a>
+        <a href="report.html">Report</a>
+        <a id="logout-btn" href="#">Logout</a>
+      </nav>
+    </aside>
+    <section class="main-panel">
+      <div class="section-title">
+        <div>
+          <h2>Report</h2>
+          <p class="lead">Review your productivity metrics and track how many tasks are completed versus planned.</p>
+        </div>
+      </div>
+      <div class="metric-card">
+        <h3>Productivity Report</h3>
+        <p>Total tasks are calculated from your Task Breaker history.</p>
+        <div class="task-card" style="margin-top:1.5rem;">
+          <h4>Total Tasks</h4>
+          <p id="total-tasks">0</p>
+          <h4>Steps Completed</h4>
+          <p id="completed-steps">0</p>
+          <h4>Completion Rate</h4>
+          <p id="completion-rate">0%</p>
+          <div class="progress-bar">
+            <div id="productivity-bar" class="progress-fill" style="width:0%;"></div>
+          </div>
+        </div>
+      </div>
+      <div id="ai-insight" class="ai-insight"></div>
+      <div class="task-card">
+        <h3>Recent task activity</h3>
+        <div id="report-task-list" class="task-list"></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">© 2026 ProcastFlow. Designed for focused work.</div></footer>
+  <script src="../js/auth.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/report.js"></script>
+</body>
+</html>

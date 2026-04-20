@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCF - Task Breaker</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+  </style>
+</head>
+<body data-auth-required="true">
+  <header class="app-topbar">
+    <div class="container">
+      <a class="brand" href="home.html">PCF</a>
+    </div>
+  </header>
+  <main class="container dashboard-layout">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="taskbreaker.html">Task Breaker</a>
+        <a href="todo.html">TODO</a>
+        <a href="report.html">Report</a>
+        <a id="logout-btn" href="#">Logout</a>
+      </nav>
+    </aside>
+    <section class="main-panel">
+      <div class="section-title">
+        <div>
+          <h2>Task Breaker</h2>
+          <p class="lead">Describe any task — AI will break it into clear, actionable steps.</p>
+        </div>
+      </div>
+      <div class="chat-container">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-container">
+          <form id="chat-form" class="chat-form">
+            <input id="chat-input" type="text" placeholder="e.g. Build a portfolio website..." required autocomplete="off" />
+            <button type="submit" class="send-btn" title="Send">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+          <p class="ai-label">✦ Powered by Claude AI</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">© 2026 ProcastFlow. Designed for focused work.</div>
+  </footer>
+  <script src="../js/auth.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/taskbreaker.js"></script>
+</body>
+</html>

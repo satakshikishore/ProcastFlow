@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCF - Register</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="home.html">PCF</a>
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="features.html">Features</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container section">
+    <div class="form-card">
+      <h2>Create your account</h2>
+      <p class="lead">Sign up to start breaking tasks and tracking your productivity.</p>
+      <form id="register-form" class="task-form" novalidate>
+        <div class="input-group">
+          <label class="label" for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+        <div class="input-group">
+          <label class="label" for="password">Password</label>
+          <input type="password" id="password" placeholder="Create a password" required />
+        </div>
+        <button class="btn" type="submit">Create Account</button>
+        <div id="register-message" class="lead" style="margin-top:1rem;color:var(--text-muted);"></div>
+      </form>
+      <p class="lead" style="margin-top:1.5rem;">
+        Already have an account? <a href="login.html" style="color:var(--accent);font-weight:600;">Login here</a>
+      </p>
+    </div>
+  </main>
+  <footer>
+    <div class="container">© 2026 ProcastFlow. Designed for focused work.</div>
+  </footer>
+  <script src="../js/auth.js"></script>
+  <script src="../js/navigation.js"></script>
+</body>
+</html>

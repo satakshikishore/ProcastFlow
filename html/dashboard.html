@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCF - Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+  </style>
+</head>
+<body data-auth-required="true">
+  <header class="app-topbar"><div class="container"><a class="brand" href="home.html">PCF</a></div></header>
+  <main class="container dashboard-layout">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="taskbreaker.html">Task Breaker</a>
+        <a href="todo.html">TODO</a>
+        <a href="report.html">Report</a>
+        <a id="logout-btn" href="#">Logout</a>
+      </nav>
+    </aside>
+    <section class="main-panel">
+      <div class="section-title">
+        <div>
+          <h2>Dashboard</h2>
+          <p class="lead">Your productivity hub for task planning, execution, and analytics.</p>
+        </div>
+      </div>
+      <div class="overview-grid" id="dashboard-summary">
+        <div class="metric-card"><h3>Total tasks</h3><strong>0</strong></div>
+        <div class="metric-card"><h3>Steps completed</h3><strong>0</strong></div>
+        <div class="metric-card"><h3>Productivity</h3><strong>0%</strong></div>
+      </div>
+      <div class="card">
+        <h3>Ready to flow</h3>
+        <p>Use Task Breaker to create new plans, then execute them in TODO and review your progress in Report.</p>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">© 2026 ProcastFlow. Designed for focused work.</div></footer>
+  <script src="../js/auth.js"></script>
+  <script src="../js/navigation.js"></script>
+</body>
+</html>
