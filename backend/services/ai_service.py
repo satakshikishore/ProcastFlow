@@ -4,11 +4,11 @@ import re
 
 # ─────────────────────────────────────────────
 # AI Task Breaker Service
-# Supports: Anthropic Claude (default) or OpenAI
-# Set AI_PROVIDER in .env to "openai" to switch
+# Supports: Groq (default), Anthropic, OpenAI
+# Set AI_PROVIDER in .env to switch
 # ─────────────────────────────────────────────
 
-AI_PROVIDER = os.environ.get("AI_PROVIDER", "anthropic").lower()
+AI_PROVIDER = os.environ.get("AI_PROVIDER", "groq").lower()
 
 SYSTEM_PROMPT = (
     "You are a productivity assistant. Break the given task into 5–8 clear, "
@@ -30,7 +30,6 @@ FALLBACK_STEPS = [
 
 def _parse_json_response(raw: str, task_title: str) -> dict:
     """Safely extract JSON from AI response."""
-    # Strip markdown fences if present
     cleaned = re.sub(r"```(?:json)?|```", "", raw).strip()
     try:
         data = json.loads(cleaned)
@@ -40,6 +39,26 @@ def _parse_json_response(raw: str, task_title: str) -> dict:
         }
     except (json.JSONDecodeError, Exception):
         return {"title": task_title, "steps": FALLBACK_STEPS}
+
+
+def break_task_groq(task: str) -> dict:
+    """Call Groq API to break a task into steps."""
+    try:
+        from groq import Groq
+        client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+        response = client.chat.completions.create(
+            model=os.environ.get("GROQ_MODEL", "llama3-8b-8192"),
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": f'Break this task into steps: "{task}"'},
+            ],
+            max_tokens=1024,
+        )
+        raw = response.choices[0].message.content
+        return _parse_json_response(raw, task)
+    except Exception as e:
+        print(f"[AI ERROR - Groq] {e}")
+        return {"title": task, "steps": FALLBACK_STEPS}
 
 
 def break_task_anthropic(task: str) -> dict:
@@ -85,7 +104,11 @@ def break_task(task: str) -> dict:
     if not task or not task.strip():
         return {"title": "Unnamed Task", "steps": FALLBACK_STEPS}
 
+    task = task.strip()
+
     if AI_PROVIDER == "openai":
-        return break_task_openai(task.strip())
+        return break_task_openai(task)
+    elif AI_PROVIDER == "anthropic":
+        return break_task_anthropic(task)
     else:
-        return break_task_anthropic(task.strip())
+        return break_task_groq(task)
